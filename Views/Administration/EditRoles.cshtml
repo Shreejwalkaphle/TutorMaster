@@ -1,0 +1,35 @@
+﻿@model EditRoleViewModel
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/registerstyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Edit Role</div>
+        <div class="content">
+            <form method="post" asp-controller="Administration" asp-action="EditRoles">
+                <div class="user-details">
+                    <div class="input-box">
+                        <input type="text" asp-for="Id" hidden />
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Role Name</span>
+                        <input type="text" asp-for="RoleName" required>
+                        <span asp-validation-for="RoleName" class="text -danger"></span>
+                    </div>
+                    <div asp-validation-summary="All" style="color:deeppink"></div>
+                </div>
+                <div class="button">
+                    <input type="submit" name="submit" value="Update Role">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

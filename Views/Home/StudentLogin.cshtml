@@ -1,0 +1,33 @@
+﻿@model Student
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/registerstyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Login</div>
+        <div class="content">
+            <form method="post" asp-controller="Home" asp-action="StudentLogin">
+                <div class="user-details"
+                    <div class="input-box">
+                        <span class="details"> user name</span>
+                        <input type="text" asp-for="email" placeholder="Enter your username" required />
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="text" asp-for="passwords"placeholder="Enter your password" required>
+                    </div
+                </div>
+                
+                <div class="button">
+                    <input type="submit" name="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

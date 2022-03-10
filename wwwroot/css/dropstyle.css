@@ -1,0 +1,58 @@
+﻿ {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    background-image: url('../images/d.jpg');
+    background-size: cover;
+}
+
+.container {
+    width: 200px;
+    position: right;
+}
+
+.click {
+    background-color: #e70d2a;
+}
+
+    .click:hover {
+        background-color: #21b71c;
+    }
+
+.click, .links {
+    padding: 12px;
+    font-size: 1.2em;
+    font-family: futura Md BT;
+    border: none;
+    outline: none;
+    width: 200px;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.list {
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.newlist {
+    transform: scaleY(1);
+}
+
+.links {
+    background-color: #283c63;
+}
+
+    .links:hover {
+        background-color: #01579B;
+        transform: scale(1.1);
+    }

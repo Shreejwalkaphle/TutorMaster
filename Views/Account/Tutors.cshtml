@@ -1,0 +1,78 @@
+﻿<!--<html>
+
+<body>-->
+@*delete*@
+<!--<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" asp-controller="Account" asp-action="Teachers">java</a>
+        <a class="dropdown-item" asp-controller="Account" asp-action="Teachers">math</a>
+        <a class="dropdown-item" asp-controller="Account" asp-action="Teachers">science</a>
+    </div>
+</div>-->
+@*delete*@
+
+
+
+
+<!--</body>
+</html>-->
+
+@model List<TeacherAndSubject>
+
+<html>
+
+<head>
+
+    <title>Dropdown</title>
+
+    <link href="~/css/dropstyle.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a style="display:block" class="click">Choose Subject</a>
+
+        <div class="list">
+
+            @for(int i = 0;i< Model.Count; i++)
+            { 
+                <a style="display:block;text-decoration:none" class="links" asp-controller="Account" asp-action="Teachers">@Model[i].subject</a>
+            }
+
+
+            @*            <a style="display:block;text-decoration:none"  class="links" asp-controller="Account" asp-action="Teachers">ASP.net</a>
+
+        <a style="display:block;text-decoration:none"  class="links" asp-controller="Account" asp-action="Teachers">Science</a>
+
+        <a style="display:block;text-decoration:none"  class="links" asp-controller="Account" asp-action="Teachers">Math</a>
+
+        <a style="display:block;text-decoration:none"  class="links" asp-controller="Account" asp-action="Teachers">Economics</a>*@
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+
+            let click = document.querySelector('.click');
+
+            let list = document.querySelector('.list');
+
+            click.addEventListener("click",()=>{
+
+                list.classList.toggle('newlist');
+
+            });
+
+    </script>
+
+</body>
+
+</html>

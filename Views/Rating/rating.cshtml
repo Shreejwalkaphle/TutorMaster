@@ -1,0 +1,11 @@
+﻿@model List<RatingViewModel>
+<h1>rating page</h1>
+
+    @foreach (var item in @Model)   
+    {
+        <p>
+        @item.UserWhoRated him @item.Communication at Communication, @item.Personality at personality and
+        @item.Punctuality at punctuality and the average comes to be @item.AverageRating
+        </p>
+    }
+        

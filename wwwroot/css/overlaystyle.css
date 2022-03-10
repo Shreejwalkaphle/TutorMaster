@@ -1,0 +1,102 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    padding: 1rem;
+    font-family: Verdana, Geneva, sans-serif;
+}
+/* The Container */
+.box-grid {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.5rem;
+    justify-items: center;
+    padding: 0;
+}
+
+/* Styles for the caption overlays */
+/* Standard Box: Top Center */
+/*box-flex {
+    padding: .5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #333333;
+    color: #d9d9d9;
+}*/
+
+/* Box: Center Center */
+.box-flex-center {
+    align-items: center;
+}
+
+/* Box: Bottom Center */
+.box-flex-bottom {
+    align-items: flex-end;
+}
+
+/* Box: Top Right */
+.box-flex-top-right {
+    justify-content: flex-end;
+}
+
+/* Box: Center Left */
+.box-flex-center-left {
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Box: Bottom Right */
+.box-flex-bottom-right {
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.box-img {
+    transition: -webkit-transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+}
+
+    .box-img:hover {
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07);
+    }
+
+.box-caption {
+    position: absolute;
+    max-width: 200px;
+    margin: 0;
+    padding: .5rem;
+    word-break: break-word;
+    font-size: 1.25rem;
+    color: #f2f2f2;
+}
+
+    .box-caption:hover {
+        /*background-color: rgba(0,0,0,.5);*/
+        color: #e6e6e6;
+        transition: all ease .5s;
+    }
+
+/* Styles for multiple caption overlays */
+
+/* align-self: flex-start */
+.align-start {
+    align-self: flex-start;
+}
+
+/* align-self: center */
+.align-center {
+    -ms-grid-row-align: center;
+    align-self: center;
+}
+
+/* align-self: flex-end */
+.align-end {
+    align-self: flex-end;
+}

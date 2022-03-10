@@ -1,0 +1,44 @@
+﻿@model CreateRoleViewModel
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/registerstyle.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="title">Create new Role</div>
+        <div class="content">
+            <form method="post" asp-controller="Administration" asp-action="CreateRole">
+                <div asp-validation-summary="All" style="color:purple"></div>
+                <div class="user-details">
+                    @* <div class="input-box">
+                            <span asp-validation-for="fullname" class="details">Full Name</span>
+                            <input type="text" asp-for="fullname">
+                        </div>
+                        <div class="input-box">
+                            <span asp-validation-for="userName" class="details"> user name</span>
+                            <input type="text" asp-for="userName">
+                        </div>*@
+                    <div class="input-box">
+                        <label asp-for="RoleName"></label>
+                        <input type="text" asp-for="RoleName">
+                        <span asp-validation-for="RoleName" class="details"></span>
+
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" name="submit" value="Create Role">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

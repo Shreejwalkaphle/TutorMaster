@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TutorMaster</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="content">
+            <div class="logo"><a href="#">TUTOR MASTER</a></div>
+            <ul class="menu-list">
+                <div class="icon cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <li><a href="#">Home</a></li>
+                <li><a asp-controller="Tutor" asp-action="Tutors">Tutors</a></li>
+                @*<li><a asp-controller="Home" asp-action="TeacherRegistration">Be Tutor</a></li>*@
+                <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+                <li><a asp-controller="Account" asp-action="Login" returnurl ="ReturnUrl">login</a></li>
+            </ul>
+            <div class="icon menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="banner"></div>
+    <div class="about">
+        <div class="content">
+            <div class="title">TUTOR MASTER</div>
+            <P>
+                Tutor master is an educational provider, offering the best tailor-made education for your child, via one 2 one
+                tuition. We are based in kathmandu and cover the whole of
+                Kathmandu valley and some surrounding areas.
+
+                Here at tutor master we believe the foundations of our company are built on the quality and experience of our
+                tutors. All of our tutors are educational specialists who are working at the heart of education within the
+                highly demanding classroom environment.
+            </P>
+        </div>
+    </div>
+
+    <script>
+        const body = document.querySelector("body");
+        const navbar = document.querySelector(".navbar");
+        const menu = document.querySelector(".menu-list");
+        const menuBtn = document.querySelector(".menu-btn");
+        const cancelBtn = document.querySelector(".cancel-btn");
+        menuBtn.onclick = () => {
+            menu.classList.add("active");
+            menuBtn.classList.add("hide");
+            cancelBtn.classList.add("show");
+            body.classList.add("disabledScroll");
+        }
+        cancelBtn.onclick = () => {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("hide");
+            cancelBtn.classList.remove("show");
+            body.classList.remove("disabledScroll");
+        }
+
+        window.onscroll = () => {
+            this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+        }
+    </script>
+
+</body>
+</html>

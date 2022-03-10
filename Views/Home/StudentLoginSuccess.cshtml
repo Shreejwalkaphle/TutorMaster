@@ -1,0 +1,550 @@
+﻿@model RatingViewModel;
+@inject SignInManager<ApplicationUser> signInManager
+
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/overlaystyle.css">
+    <link rel="stylesheet" href="~/css/starstyle.css">
+</head>
+<body>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <div style="float: right">
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <button type="submit">logout @User.Identity.Name</button>
+            </form>
+        </div>
+    }
+<div class=" box-flex-center" style="display: flex; align-items: center; padding: .5rem; text-align: center; font-size: 1.2rem; background-color: #333333; color: #d9d9d9;">
+
+    <img class="box-img" src="~/images/shreejwal.jpg" height="200px" width="200px">
+    <h6 class="box-caption align-start">Shreejwal</h6>
+    <h5 class="box-caption">
+        <div id="wrapper">
+            <form method="get">
+                <p class="clasificacion">
+
+                    @if (Model.AverageRating == 5)
+                    {
+                        <input id="radio1" type="radio" name="overallrating" value="5">
+                        <label for="radio1">&#9733;</label>
+                        <input id="radio2" type="radio" name="overallrating" value="4">
+                        <label for="radio2">&#9733;</label>
+                        <input id="radio3" type="radio" name="overallrating" value="3">
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>
+                    }
+                    else if (Model.AverageRating == 4)
+                    {
+
+                        <input id="radio2" type="radio" name="overallrating" value="4">
+                        <label for="radio2">&#9733;</label>
+                        <input id="radio3" type="radio" name="overallrating" value="3">
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>
+                    }
+                    else if (Model.AverageRating == 3)
+                    {
+
+                        <input id="radio3" type="radio" name="overallrating" value="3">
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>
+                    }
+                    else if (Model.AverageRating == 2)
+                    {
+
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>
+                    }
+                    else if (Model.AverageRating == 1)
+                    {
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>
+                    }
+
+
+
+
+                    @* <input id="radio1" type="radio" name="overallrating" value="5">
+                        <label for="radio1">&#9733;</label>
+                        <input id="radio2" type="radio" name="overallrating" value="4">
+                        <label for="radio2">&#9733;</label>
+                        <input id="radio3" type="radio" name="overallrating" value="4">
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>*@
+                </p>
+            </form>
+        </div>
+    </h5>
+    <button class="box-caption align-end"><a style="text-decoration: none;" asp-controller="Account" asp-action="Book">Contact Teacher</a></button>
+    <div id="wrapper">
+        <form asp-action="rating" asp-controller="Rating" method="post">
+            <h3>communication</h3>
+            <p class="clasificacion">
+                <input id="radio6" type="radio" name="communication" value="5">
+                <!--
+                -->
+                <label for="radio6">&#9733;</label>
+                <!--
+                -->
+                <input id="radio7" type="radio" name="communication" value="4">
+                <!--
+                -->
+                <label for="radio7">&#9733;</label>
+                <!--
+                -->
+                <input id="radio8" type="radio" name="communication" value="3">
+                <!--
+                -->
+                <label for="radio8">&#9733;</label>
+                <!--
+                -->
+                <input id="radio9" type="radio" name="communication" value="2">
+                <!--
+                -->
+                <label for="radio9">&#9733;</label>
+                <!--
+                -->
+                <input id="radio10" type="radio" name="communication" value="1">
+                <!--
+                -->
+                <label for="radio10">&#9733;</label>
+            </p>
+            <h3>punctuality</h3>
+            <p class="clasificacion">
+                <input id="radio11" type="radio" name="punctuality" value="5">
+                <!--
+                -->
+                <label for="radio11">&#9733;</label>
+                <!--
+                -->
+                <input id="radio12" type="radio" name="punctuality" value="4">
+                <!--
+                -->
+                <label for="radio12">&#9733;</label>
+                <!--
+                -->
+                <input id="radio13" type="radio" name="punctuality" value="3">
+                <!--
+                -->
+                <label for="radio13">&#9733;</label>
+                <!--
+                -->
+                <input id="radio14" type="radio" name="punctuality" value="2">
+                <!--
+                -->
+                <label for="radio14">&#9733;</label>
+                <!--
+                -->
+                <input id="radio15" type="radio" name="punctuality" value="1">
+                <!--
+                -->
+                <label for="radio15">&#9733;</label>
+            </p>
+            <h3>personality</h3>
+            <p class="clasificacion">
+                <input id="radio16" type="radio" name="personality" value="5">
+                <!--
+                -->
+                <label for="radio16">&#9733;</label>
+                <!--
+                -->
+                <input id="radio17" type="radio" name="personality" value="4">
+                <!--
+                -->
+                <label for="radio17">&#9733;</label>
+                <!--
+                -->
+                <input id="radio18" type="radio" name="personality" value="3">
+                <!--
+                -->
+                <label for="radio18">&#9733;</label>
+                <!--
+                -->
+                <input id="radio19" type="radio" name="personality" value="2">
+                <!--
+                -->
+                <label for="radio19">&#9733;</label>
+                <!--
+                -->
+                <input id="radio20" type="radio" name="personality" value="1">
+                <!--
+                -->
+                <label for="radio20">&#9733;</label>
+            </p>
+            <input type="text" hidden asp-for="UserWhoRated" value="@User.Identity.Name" />
+            <input type="submit" name="submit" value="Submit Rating">
+        </form>
+    </div>
+
+
+    <div class=" box-flex-center" style="display: flex; align-items: center; padding: .5rem; text-align: center; font-size: 1.2rem; background-color: #333333; color: #d9d9d9;">
+
+        <img class="box-img" src="~/images/sthir.jpg" height="200px" width="200px">
+        <h6 class="box-caption align-start">sthir</h6>
+        <h5 class="box-caption">
+            <div id="wrapper">
+                <form method="get">
+                    <p class="clasificacion">
+
+                        @if (Model.AverageRating == 5)
+                        {
+                            <input id="radio1" type="radio" name="overallrating2" value="5">
+                            <label for="radio1">&#9733;</label>
+                            <input id="radio2" type="radio" name="overallrating2" value="4">
+                            <label for="radio2">&#9733;</label>
+                            <input id="radio3" type="radio" name="overallrating2" value="3">
+                            <label for="radio3">&#9733;</label>
+                            <input id="radio4" type="radio" name="overallrating2" value="2">
+                            <label for="radio4">&#9733;</label>
+                            <input id="radio5" type="radio" name="overallrating2" value="1">
+                            <label for="radio5">&#9733;</label>
+                        }
+                        else if (Model.AverageRating == 4)
+                        {
+
+                            <input id="radio2" type="radio" name="overallrating2" value="4">
+                            <label for="radio2">&#9733;</label>
+                            <input id="radio3" type="radio" name="overallrating2" value="3">
+                            <label for="radio3">&#9733;</label>
+                            <input id="radio4" type="radio" name="overallrating2" value="2">
+                            <label for="radio4">&#9733;</label>
+                            <input id="radio5" type="radio" name="overallrating2" value="1">
+                            <label for="radio5">&#9733;</label>
+                        }
+                        else if (Model.AverageRating == 3)
+                        {
+
+                            <input id="radio3" type="radio" name="overallrating2" value="3">
+                            <label for="radio3">&#9733;</label>
+                            <input id="radio4" type="radio" name="overallrating2" value="2">
+                            <label for="radio4">&#9733;</label>
+                            <input id="radio5" type="radio" name="overallrating2" value="1">
+                            <label for="radio5">&#9733;</label>
+                        }
+                        else if (Model.AverageRating == 2)
+                        {
+
+                            <input id="radio4" type="radio" name="overallrating2" value="2">
+                            <label for="radio4">&#9733;</label>
+                            <input id="radio5" type="radio" name="overallrating2" value="1">
+                            <label for="radio5">&#9733;</label>
+                        }
+                        else if (Model.AverageRating == 1)
+                        {
+                            <input id="radio5" type="radio" name="overallrating2" value="1">
+                            <label for="radio5">&#9733;</label>
+                        }
+
+
+
+
+                        @* <input id="radio1" type="radio" name="overallrating" value="5">
+                        <label for="radio1">&#9733;</label>
+                        <input id="radio2" type="radio" name="overallrating" value="4">
+                        <label for="radio2">&#9733;</label>
+                        <input id="radio3" type="radio" name="overallrating" value="4">
+                        <label for="radio3">&#9733;</label>
+                        <input id="radio4" type="radio" name="overallrating" value="2">
+                        <label for="radio4">&#9733;</label>
+                        <input id="radio5" type="radio" name="overallrating" value="1">
+                        <label for="radio5">&#9733;</label>*@
+                    </p>
+                </form>
+            </div>
+        </h5>
+        <button class="box-caption align-end"><a style="text-decoration: none;" asp-controller="Account" asp-action="Book">Contact Teacher</a></button>
+        <div id="wrapper">
+            <form asp-action="rating" asp-controller="Rating" method="post">
+                <h3>communication</h3>
+                <p class="clasificacion">
+                    <input id="radio6" type="radio" name="communication" value="5">
+                    <!--
+                -->
+                    <label for="radio6">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio7" type="radio" name="communication" value="4">
+                    <!--
+                -->
+                    <label for="radio7">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio8" type="radio" name="communication" value="3">
+                    <!--
+                -->
+                    <label for="radio8">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio9" type="radio" name="communication" value="2">
+                    <!--
+                -->
+                    <label for="radio9">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio10" type="radio" name="communication" value="1">
+                    <!--
+                -->
+                    <label for="radio10">&#9733;</label>
+                </p>
+                <h3>punctuality</h3>
+                <p class="clasificacion">
+                    <input id="radio11" type="radio" name="punctuality" value="5">
+                    <!--
+                -->
+                    <label for="radio11">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio12" type="radio" name="punctuality" value="4">
+                    <!--
+                -->
+                    <label for="radio12">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio13" type="radio" name="punctuality" value="3">
+                    <!--
+                -->
+                    <label for="radio13">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio14" type="radio" name="punctuality" value="2">
+                    <!--
+                -->
+                    <label for="radio14">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio15" type="radio" name="punctuality" value="1">
+                    <!--
+                -->
+                    <label for="radio15">&#9733;</label>
+                </p>
+                <h3>personality</h3>
+                <p class="clasificacion">
+                    <input id="radio16" type="radio" name="personality" value="5">
+                    <!--
+                -->
+                    <label for="radio16">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio17" type="radio" name="personality" value="4">
+                    <!--
+                -->
+                    <label for="radio17">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio18" type="radio" name="personality" value="3">
+                    <!--
+                -->
+                    <label for="radio18">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio19" type="radio" name="personality" value="2">
+                    <!--
+                -->
+                    <label for="radio19">&#9733;</label>
+                    <!--
+                -->
+                    <input id="radio20" type="radio" name="personality" value="1">
+                    <!--
+                -->
+                    <label for="radio20">&#9733;</label>
+                </p>
+                <input type="text" hidden asp-for="UserWhoRated" value="@User.Identity.Name" />
+                <input type="submit" name="submit" value="Submit Rating">
+            </form>
+        </div>
+
+
+
+        <div class=" box-flex-center" style="display: flex; align-items: center; padding: .5rem; text-align: center; font-size: 1.2rem; background-color: #333333; color: #d9d9d9;">
+
+            <img class="box-img" src="~/images/asis.jpg" height="200px" width="200px">
+            <h6 class="box-caption align-start">asis</h6>
+            <h5 class="box-caption">
+                <div id="wrapper">
+                    <form method="get">
+                        <p class="clasificacion">
+
+                            @if (Model.AverageRating == 5)
+                            {
+                                <input id="radio1" type="radio" name="overallrating3" value="5">
+                                <label for="radio1">&#9733;</label>
+                                <input id="radio2" type="radio" name="overallrating3" value="4">
+                                <label for="radio2">&#9733;</label>
+                                <input id="radio3" type="radio" name="overallrating3" value="3">
+                                <label for="radio3">&#9733;</label>
+                                <input id="radio4" type="radio" name="overallrating3" value="2">
+                                <label for="radio4">&#9733;</label>
+                                <input id="radio5" type="radio" name="overallrating3" value="1">
+                                <label for="radio5">&#9733;</label>
+                            }
+                            else if (Model.AverageRating == 4)
+                            {
+
+                                <input id="radio2" type="radio" name="overallrating3" value="4">
+                                <label for="radio2">&#9733;</label>
+                                <input id="radio3" type="radio" name="overallrating3" value="3">
+                                <label for="radio3">&#9733;</label>
+                                <input id="radio4" type="radio" name="overallrating3" value="2">
+                                <label for="radio4">&#9733;</label>
+                                <input id="radio5" type="radio" name="overallrating3" value="1">
+                                <label for="radio5">&#9733;</label>
+                            }
+                            else if (Model.AverageRating == 3)
+                            {
+
+                                <input id="radio3" type="radio" name="overallrating3" value="3">
+                                <label for="radio3">&#9733;</label>
+                                <input id="radio4" type="radio" name="overallrating3" value="2">
+                                <label for="radio4">&#9733;</label>
+                                <input id="radio5" type="radio" name="overallrating3" value="1">
+                                <label for="radio5">&#9733;</label>
+                            }
+                            else if (Model.AverageRating == 2)
+                            {
+
+                                <input id="radio4" type="radio" name="overallrating3" value="2">
+                                <label for="radio4">&#9733;</label>
+                                <input id="radio5" type="radio" name="overallrating3" value="1">
+                                <label for="radio5">&#9733;</label>
+                            }
+                            else if (Model.AverageRating == 1)
+                            {
+                                <input id="radio5" type="radio" name="overallrating3" value="1">
+                                <label for="radio5">&#9733;</label>
+                            }
+
+
+
+
+                            @* <input id="radio1" type="radio" name="overallrating" value="5">
+                            <label for="radio1">&#9733;</label>
+                            <input id="radio2" type="radio" name="overallrating" value="4">
+                            <label for="radio2">&#9733;</label>
+                            <input id="radio3" type="radio" name="overallrating" value="4">
+                            <label for="radio3">&#9733;</label>
+                            <input id="radio4" type="radio" name="overallrating" value="2">
+                            <label for="radio4">&#9733;</label>
+                            <input id="radio5" type="radio" name="overallrating" value="1">
+                            <label for="radio5">&#9733;</label>*@
+                        </p>
+                    </form>
+                </div>
+            </h5>
+            <button class="box-caption align-end"><a style="text-decoration: none;" asp-controller="Account" asp-action="Book">Contact Teacher</a></button>
+            <div id="wrapper">
+                <form asp-action="rating" asp-controller="Rating" method="post">
+                    <h3>communication</h3>
+                    <p class="clasificacion">
+                        <input id="radio6" type="radio" name="communication" value="5">
+                        <!--
+                    -->
+                        <label for="radio6">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio7" type="radio" name="communication" value="4">
+                        <!--
+                    -->
+                        <label for="radio7">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio8" type="radio" name="communication" value="3">
+                        <!--
+                    -->
+                        <label for="radio8">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio9" type="radio" name="communication" value="2">
+                        <!--
+                    -->
+                        <label for="radio9">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio10" type="radio" name="communication" value="1">
+                        <!--
+                    -->
+                        <label for="radio10">&#9733;</label>
+                    </p>
+                    <h3>punctuality</h3>
+                    <p class="clasificacion">
+                        <input id="radio11" type="radio" name="punctuality" value="5">
+                        <!--
+                    -->
+                        <label for="radio11">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio12" type="radio" name="punctuality" value="4">
+                        <!--
+                    -->
+                        <label for="radio12">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio13" type="radio" name="punctuality" value="3">
+                        <!--
+                    -->
+                        <label for="radio13">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio14" type="radio" name="punctuality" value="2">
+                        <!--
+                    -->
+                        <label for="radio14">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio15" type="radio" name="punctuality" value="1">
+                        <!--
+                    -->
+                        <label for="radio15">&#9733;</label>
+                    </p>
+                    <h3>personality</h3>
+                    <p class="clasificacion">
+                        <input id="radio16" type="radio" name="personality" value="5">
+                        <!--
+                    -->
+                        <label for="radio16">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio17" type="radio" name="personality" value="4">
+                        <!--
+                    -->
+                        <label for="radio17">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio18" type="radio" name="personality" value="3">
+                        <!--
+                    -->
+                        <label for="radio18">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio19" type="radio" name="personality" value="2">
+                        <!--
+                    -->
+                        <label for="radio19">&#9733;</label>
+                        <!--
+                    -->
+                        <input id="radio20" type="radio" name="personality" value="1">
+                        <!--
+                    -->
+                        <label for="radio20">&#9733;</label>
+                    </p>
+                    <input type="text" hidden asp-for="UserWhoRated" value="@User.Identity.Name" />
+                    <input type="submit" name="submit" value="Submit Rating">
+                </form>
+            </div>
+</body>
+</html>

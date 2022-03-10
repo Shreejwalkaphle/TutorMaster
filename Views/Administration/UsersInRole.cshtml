@@ -1,0 +1,16 @@
+﻿@model UsersUnderRoleViewModel
+
+@if (Model.UsersUnderRoleList.Count <= 0)
+{
+    <h1 style="color:red">no one in this role currently</h1>
+    <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleid="@ViewBag.RoleId">Add or remove Users in this Role?</a>
+}
+else
+{
+    foreach (var user in Model.UsersUnderRoleList)
+    {
+        <p>@user</p>
+    }
+    <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleid="@ViewBag.RoleId">Add or remove Users in this Role?</a>
+}
+

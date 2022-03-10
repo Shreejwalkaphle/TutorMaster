@@ -1,0 +1,38 @@
+﻿@model IEnumerable<IdentityRole>
+
+<h1>All Roles</h1>
+<div>
+    @if (Model.Any())
+    {
+    <ol>
+        @foreach (var role in Model)
+        {
+            <li style="color:maroon">
+                roleid = <p style="color:purple">@role.Id</p> and rolename = <p style="color:purple">@role.Name</p>
+
+                <p><a style="color:green" asp-controller="Administration" asp-action="EditRoles" asp-route-editid="@role.Id">Edit this Role</a></p>
+                @* asp-route-editid cha ni, ho yesma asp-route- pichadi 'editid' jun cha ni tyo chai
+                    routeparameter ho k.yo routeparameter ma j cha ni ,controller ko get bala action ma
+                    hamile parameter rakhna parni huncha . tyo parameter ko namm pani exactly yei route
+                    parameter sanga match hunaparcha.
+                *@
+
+                @* 'Administration' controller ko 'EditRoles' bhanni action ma 
+                    public IActionresult RditRoles(String editid){}
+                    ho yesto bhanna khkojeko k eta link ma route parameter pani 'editid'
+                    ani action ko parameter ma reference variable ko naam pani 'editid'
+                *@
+
+                <a asp-controller="Administration" asp-action="UsersInRole" asp-route-roleid="@role.Id">Who are in this Role?</a>
+                <a asp-controller="Administration" asp-action="EditUsersInRole" asp-route-roleid="@role.Id">Add or remove Users in this Role?</a>
+
+            </li>
+        }
+    </ol>
+    }
+    else
+    {
+        <h3 style="color:red">no roles defined</h3>
+    }
+
+</div>
